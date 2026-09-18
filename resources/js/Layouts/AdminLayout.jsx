@@ -17,9 +17,39 @@ export default function AdminLayout({ children }) {
                     <i className="fa-solid fa-shield-halved me-2"></i> Admin Panel
                 </h4>
                 <ul className="nav nav-pills flex-column mb-auto mt-3">
-                    <li className="nav-item mb-2">
+                   <li className="nav-item mb-2">
                         <Link href={route('admin.dashboard')} className={`nav-link ${route().current('admin.dashboard') ? 'active bg-primary' : 'text-white'}`}>
                             <i className="fa-solid fa-gauge fa-fw me-2"></i> Dashboard
+                        </Link>
+                    </li>
+                    <li className="nav-item mb-2">
+                        <Link href="/admin/about-us" className={`nav-link ${route().current('admin.about-us.*') ? 'active bg-primary' : 'text-white'}`}>
+                            <i className="fa-solid fa-building fa-fw me-2"></i> About Us
+                        </Link>
+                    </li>
+                    <li className="nav-item mb-2">
+                        <Link href="/admin/carousels" className={`nav-link ${route().current('admin.carousels.*') ? 'active bg-primary' : 'text-white'}`}>
+                            <i className="fa-solid fa-images fa-fw me-2"></i> Carousel
+                        </Link>
+                    </li>
+                    <li className="nav-item mb-2">
+                        <Link href="/admin/services" className={`nav-link ${route().current('admin.services.*') ? 'active bg-primary' : 'text-white'}`}>
+                            <i className="fa-solid fa-cogs fa-fw me-2"></i> Services
+                        </Link>
+                    </li>
+                    <li className="nav-item mb-2">
+                        <Link href="/admin/galleries" className={`nav-link ${route().current('admin.galleries.*') ? 'active bg-primary' : 'text-white'}`}>
+                            <i className="fa-solid fa-photo-film fa-fw me-2"></i> Gallery
+                        </Link>
+                    </li>
+                    <li className="nav-item mb-2">
+                        <Link href="/admin/company-trusts" className={`nav-link ${route().current('admin.company-trusts.*') ? 'active bg-primary' : 'text-white'}`}>
+                            <i className="fa-solid fa-handshake fa-fw me-2"></i> Company Trust
+                        </Link>
+                    </li>
+                    <li className="nav-item mb-2">
+                        <Link href="/admin/testimonials" className={`nav-link ${route().current('admin.testimonials.*') ? 'active bg-primary' : 'text-white'}`}>
+                            <i className="fa-solid fa-comments fa-fw me-2"></i> Testimonial
                         </Link>
                     </li>
                     <li className="nav-item mb-2">

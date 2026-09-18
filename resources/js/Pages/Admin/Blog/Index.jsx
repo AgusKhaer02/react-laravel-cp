@@ -17,6 +17,10 @@ export default function Index({ blogs }) {
                 <Link href={route('admin.blogs.create')} className="btn btn-primary">
                     <i className="fa-solid fa-plus me-1"></i> Tambah Blog
                 </Link>
+
+                <Link href={route('admin.blog.trash')} className="btn btn-outline-danger">
+                    <i className="fa-solid fa-trash-can me-1"></i> Tempat Sampah
+                </Link>
             </div>
 
             <div className="card shadow-sm border-0">

@@ -81,4 +81,35 @@ class BlogController extends Controller
 
         return redirect()->route('admin.blogs.index')->with('success', 'Blog berhasil dihapus!');
     }
+
+
+    public function trash()
+    {
+        $trashedBlogs = Blog::onlyTrashed()->with('author')->latest()->paginate(10);
+
+        return Inertia::render('Admin/Blog/Trash', [
+            'blogs' => $trashedBlogs
+        ]);
+    }
+
+    public function restore($id)
+    {
+        $trashedBlogs = Blog::onlyTrashed()->findOrFail($id);
+
+        $trashedBlogs->restore();
+
+        return redirect()->route('admin.blogs.index')->with('success', 'Blog berhasil dihapus kembalikan!');
+    }
+
+    public function forceDestroy($id) {
+        $blog = Blog::onlyTrashed()->findOrFail($id);
+        if ($blog->image) {
+            Storage::disk('public')->delete($blog->image);
+        }
+
+        // delete blog permanen
+        $blog->forceDelete();
+
+        return redirect()->route('admin.blog.trash')->with('success', 'Data blog dan gambar berhasil dihapus permanen!');
+    }
 }
